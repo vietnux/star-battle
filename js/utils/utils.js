@@ -43,7 +43,7 @@ const raf = (() => {
 
     const reg = (id, callback) => {
         if (events[id]) {
-            return console.error('id 已存在');
+            return console.error('id existed');
         }
         events[id] = callback;
     };
@@ -106,6 +106,8 @@ const hotkey = (() => {
 
     on(window, 'keydown', e => {
         let keyCode = e.key.toLocaleUpperCase();
+        // console.log("keydown", "Lên nào "+keyCode);
+        // console.log(e);
         if (!data[keyCode]) {
             return;
         }
@@ -114,6 +116,7 @@ const hotkey = (() => {
     });
     on(window, 'keyup', e => {
         let keyCode = e.key.toLocaleUpperCase();
+        // console.log("keyup", "Xuống nào "+keyCode);
         if (!data[keyCode]) {
             return;
         }
@@ -122,6 +125,68 @@ const hotkey = (() => {
             .filter((el) => el.once)
             .forEach(el => el.enable = true);
     });
+
+
+    // var move = function(e) {
+    //     e.preventDefault();
+    //     e = e.originalEvent;
+    //     e = e.changedTouches[0];
+
+    //     if(paint==true){
+    //         addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+    //         redraw();
+    //     }
+    // };
+
+    // on(window, 'touchstart', e => {
+    //      // Mouse down location
+    //      var mouseX = (e.pageX ? e.pageX : $(window).scrollTop()) - this.offsetLeft;
+    //      var mouseY = (e.pageY ? e.pageY : $(window).scrollLeft()) - this.offsetTop;
+    //     console.log("touchstart", mouseX + "Lên nào" + mouseY );
+    //     console.log(e);
+    //     let keyCode = 'touch';//e.key.toLocaleUpperCase();
+    //     if (!data[keyCode]) {
+    //         return;
+    //     }
+    //     e.preventDefault();
+    //     data[keyCode].active = true;
+
+    // });
+    // on(window, "touchmove mousemove", e => {
+    //     console.log("touchmove", "bay nào");
+    //     console.log(e);
+    //     let keyCode = 'touch';//e.key.toLocaleUpperCase();
+    //     if (!data[keyCode]) {
+    //         return;
+    //     }
+    //     left = (e.pageX - 10) + 'px',
+    //     top = (e.pageY - 10) + 'px',
+
+    //     e.preventDefault();
+    //     data[keyCode].active = true;
+    // });
+    // on(window, "touchend", e => {
+    //     console.log("touchend", "Xuống nào");
+    //     let keyCode = 'touch';//e.key.toLocaleUpperCase();
+    //     if (!data[keyCode]) {
+    //         return;
+    //     }
+    //     data[keyCode].active = false;
+    //     data[keyCode].events
+    //         .filter((el) => el.once)
+    //         .forEach(el => el.enable = true);
+    // });
+    // on(window, "onTouchLeave", e => {
+    //     console.log("onTouchLeave", "Xuống nào");
+    //     let keyCode = 'touch';//e.key.toLocaleUpperCase();
+    //     if (!data[keyCode]) {
+    //         return;
+    //     }
+    //     data[keyCode].active = false;
+    //     data[keyCode].events
+    //         .filter((el) => el.once)
+    //         .forEach(el => el.enable = true);
+    // });
 
 
     loop();

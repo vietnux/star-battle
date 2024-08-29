@@ -3,15 +3,19 @@ body {
     flex-direction: column;
     color: #ddd;
     overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: url('../splashscreen.png') center center no-repeat #222;
+    background-size: 256px 256px;
 }
 
 #app {
     position: relative;
-    margin: 10px auto;
+    /* margin: 10px auto; */
     background: #222;
     font-size: 14px;
     box-shadow: 5px 5px 10px -5px #000;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     overflow: hidden;
 }
 
@@ -50,6 +54,7 @@ body {
     visibility: visible;
     opacity: 1;
     transition: all 0.2s ease;
+    padding-left: 16px; padding-right: 16px; overflow-y: scroll;
 }
 
 #start-btn p:nth-child(2) {
@@ -179,3 +184,49 @@ footer a{
     color: inherit;
     text-decoration: none;
 }
+
+.gui_joystick {
+	display: none;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 235px;
+	height: 265px;
+	z-index: 90
+}
+
+.loader_ads {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #dd990a;
+    border-right: 8px solid #d25627;
+    border-bottom: 8px solid red;
+    border-left: 8px solid #556080;
+    width: 32px;
+    height: 32px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden{ display: none;}

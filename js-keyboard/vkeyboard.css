@@ -1,0 +1,16 @@
+.vkeyboard {
+  position: fixed;left: 0;bottom:0;
+  background: #cfd8dc ;padding : 1vh 1vw;min-height: 20px; /*right: 0;min-width: 70vmax;*/ max-width: 75vmax;
+  user-select: none; height: calc(7*100vmin/15); width: auto;
+font-family:  HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+
+}
+.vkeyboard ul {list-style: none;float:none;padding:0;margin:0;height:auto; padding:0 3px;display: block;clear:both}
+.vkeyboard ul li{float: left;display: inline-block;width:auto;height:auto; min-width: calc(100vmin/15);min-height: calc(100vmin/15);
+  background: #fff;text-align: center;line-height: calc(100vmin/15);border-radius: 5px;cursor: pointer;margin:0.5vw; color:#555;font-size: 12px;box-shadow: 1px 1px 1px;}
+.vkeyboard ul li.active ,.vkeyboard ul li:active {background:#b0bec5 }
+.vkeyboard ul li.c11 {width:7.5vw;}
+.vkeyboard ul li.c12 {width:9vw;}
+.vkeyboard ul li.c13 {width:10vw;}
+.vkeyboard ul li.del {width:10vw;}
+.vkeyboard #vkeyboardheader {position: absolute;top:0;right: 0;width: 32px}

@@ -64,7 +64,12 @@ class Rank extends Scene {
             $('#restart-btn'),
             'click',
             () => {
-                this.game.start();
+                if (adsposition.play == '1') {
+                    prepareInterstitialRandom(() => {   this.game.start(); });
+                } else {
+                    this.game.start();
+                }
+                
             }
         )
     }

@@ -35,10 +35,17 @@ class Player extends Plane{
             'a': this.left,
             's': this.down,
             'd': this.right,
+
+            'ARROWUP': this.up,
+            'ARROWLEFT': this.left,
+            'ARROWDOWN': this.down,
+            'ARROWRIGHT': this.right,
         };
         Object.keys(keys).map((key) => {
             hotkey.reg(key, () => {
                called(keys[key]);
+               res.replay('shoot');
+                this.fire();
             }); 
         });
         

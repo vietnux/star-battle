@@ -1,9 +1,9 @@
 class Play extends Scene {
-    constructor(el,game){
-        super(el,game);
+    constructor(el, game) {
+        super(el, game);
         this.created();
     }
-    created(){
+    created() {
         this.raf_id = 'play_update';
         this.initCanvas();
     }
@@ -25,21 +25,26 @@ class Play extends Scene {
         raf.reg(this.raf_id, this.update.bind(this));
         res.play('bg');
         $('#game-pause-btn').classList.add('active');
+        console.log('start');
+        // clearInterval(intervalJoytick);
+        document.getElementsByClassName("gui_joystick")[0].style.display = "block";
+        // showVirtualJoystick();
     }
     pause() {
         this.pauseFlag = true;
         raf.remove(this.raf_id);
         res.pause('bg');
         $('#game-pause-btn').classList.remove('active');
+        document.getElementsByClassName("gui_joystick")[0].style.display = "none";
     }
 
-    mute(){
+    mute() {
         this.muteFlag = true;
         res.mute();
         $('#game-mute-btn').classList.add('active');
     }
 
-    speak(){
+    speak() {
         this.muteFlag = false;
         res.speak();
         $('#game-mute-btn').classList.remove('active');
@@ -50,6 +55,7 @@ class Play extends Scene {
         res.end('bg');
         $("#logo").classList.remove('play-status');
         hotkey.clearAll();
+        document.getElementsByClassName("gui_joystick")[0].style.display = "none";
     }
 
     initData() {
@@ -176,7 +182,7 @@ class Play extends Scene {
             this.bulletCollision(bullet, this.enemys.arr, (el) => {
                 this.updateScore(
                     el instanceof Meteorite ?
-                    shootMeteorite : shootEnemy
+                        shootMeteorite : shootEnemy
                 );
                 this.updateshoot();
                 this.shoot();
@@ -205,7 +211,7 @@ class Play extends Scene {
             this.playerCollision(enemy, () => {
                 this.updateScore(
                     enemy instanceof Meteorite ?
-                    shootMeteorite : shootEnemy
+                        shootMeteorite : shootEnemy
                 );
                 this.updateFuel(beingHit);
                 this.updateshoot();
@@ -322,7 +328,7 @@ class Play extends Scene {
         $('#shoot').innerHTML = numberFormat(game.data.shoot);
     }
 
-    updateFontSize(){
+    updateFontSize() {
         $('.content .header .info').style.fontSize = config.game.fontSize.val + 'px';
     }
 
@@ -360,13 +366,13 @@ class Play extends Scene {
     }
 
     event() {
-        const togglePause = ()=>{
+        const togglePause = () => {
             this.pauseFlag ? this.start() : this.pause();
         }
-        const toggleMute = ()=>{
+        const toggleMute = () => {
             this.muteFlag ? this.speak() : this.mute();
         }
-        const fontSize = (status)=>{
+        const fontSize = (status) => {
             let {
                 max,
                 min,
@@ -386,28 +392,28 @@ class Play extends Scene {
         on(
             $('#game-font-size-add'),
             'click',
-            ()=>{
+            () => {
                 fontSize(true);
             }
         )
         on(
             $('#game-font-size-reduce'),
             'click',
-            ()=>{
+            () => {
                 fontSize(false);
             }
         )
         on(
             $('#game-pause-btn'),
             'click',
-            ()=>{
+            () => {
                 togglePause()
             }
         )
         on(
             $('#game-mute-btn'),
             'click',
-            ()=>{
+            () => {
                 toggleMute()
             }
         )

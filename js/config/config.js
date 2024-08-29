@@ -40,7 +40,7 @@ const fps = 60;
             h: 10,
             x: 0,
             y: 0,
-            speed : 4,
+            speed : 2,
         };
     })
 
@@ -64,8 +64,8 @@ const fps = 60;
     // config
 
     config.game = {
-        w: 960,
-        h: 480,
+        w: window.innerWidth,
+        h: window.innerHeight,
         fontSize : {
             min : 12,
             max : 30,
@@ -247,8 +247,8 @@ const fps = 60;
         };
 
         return Object.assign(
-            batchAdd(path+'/star/','star_',12,'png'),
-            batchAdd(path+'/meteorites/','meteorites_',4,'png'),
+            batchAdd(path+'star/','star_',12,'png'),
+            batchAdd(path+'meteorites/','meteorites_',4,'png'),
             images,
         )
 

@@ -17,8 +17,8 @@ class Game {
         const el = $('#app');
         style(
             el, {
-                width: config.game.w + 'px',
-                height: config.game.h + 'px',
+                width: '100vw',//config.game.w + 'px',
+                height: '100vh',//config.game.h + 'px',
             }
         );
     }
